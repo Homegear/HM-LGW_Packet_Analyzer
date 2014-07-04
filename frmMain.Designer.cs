@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.label3 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.txtEncryptedData = new System.Windows.Forms.TextBox();
@@ -61,6 +62,7 @@
             this.txtKey.Name = "txtKey";
             this.txtKey.Size = new System.Drawing.Size(256, 20);
             this.txtKey.TabIndex = 5;
+            this.txtKey.Text = "5P4knCaKDd";
             this.txtKey.TextChanged += new System.EventHandler(this.txtKey_TextChanged);
             // 
             // txtEncryptedData
@@ -73,7 +75,9 @@
             this.txtEncryptedData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtEncryptedData.Size = new System.Drawing.Size(701, 215);
             this.txtEncryptedData.TabIndex = 6;
+            this.txtEncryptedData.Text = resources.GetString("txtEncryptedData.Text");
             this.txtEncryptedData.TextChanged += new System.EventHandler(this.txtEncryptedData_TextChanged);
+            this.txtEncryptedData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxKeyDown);
             // 
             // label4
             // 
@@ -95,6 +99,7 @@
             this.txtDecryptedData1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDecryptedData1.Size = new System.Drawing.Size(701, 160);
             this.txtDecryptedData1.TabIndex = 8;
+            this.txtDecryptedData1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxKeyDown);
             // 
             // txtDecryptedData2
             // 
@@ -106,6 +111,7 @@
             this.txtDecryptedData2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDecryptedData2.Size = new System.Drawing.Size(701, 188);
             this.txtDecryptedData2.TabIndex = 13;
+            this.txtDecryptedData2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxKeyDown);
             // 
             // splitContainer1
             // 
@@ -157,6 +163,7 @@
             this.Name = "frmMain";
             this.ShowIcon = false;
             this.Text = "HM-LGW Packet Analyzer";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

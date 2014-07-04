@@ -18,6 +18,11 @@ namespace HMLGWPacketAnalyzer
             InitializeComponent();
         }
 
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            DecryptTCPStream();
+        }
+
         private void txtEncryptedData_TextChanged(object sender, EventArgs e)
         {
             DecryptTCPStream();
@@ -26,6 +31,14 @@ namespace HMLGWPacketAnalyzer
         private void txtKey_TextChanged(object sender, EventArgs e)
         {
             DecryptTCPStream();
+        }
+
+        private void TextBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control & e.KeyCode == Keys.A)
+            {
+                ((TextBox)sender).SelectAll();
+            }
         }
 
         private void DecryptTCPStream()
