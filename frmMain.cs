@@ -128,7 +128,7 @@ namespace HMLGWPacketAnalyzer
                         txtDecryptedData1.Text += "CCU => LGW:\r\n";
                         txtDecryptedData1.Text += GetHexFromBytearray(DecryptedPacketsPeer0[IndexPeer0].Data) + "\r\n";
                         txtDecryptedData2.Text += "CCU => LGW:\r\n";
-                        txtDecryptedData2.Text += Encoding.UTF8.GetString(DecryptedPacketsPeer0[IndexPeer0].Data) + "\r\n";
+                        txtDecryptedData2.Text += ASCIIToString(DecryptedPacketsPeer0[IndexPeer0].Data) + "\r\n";
                         IndexPeer0++;
                     }
                     else if (IndexPeer1 < DecryptedPacketsPeer1.Count() && DecryptedPacketsPeer1[IndexPeer1].Index == i)
@@ -136,7 +136,7 @@ namespace HMLGWPacketAnalyzer
                         txtDecryptedData1.Text += "LGW => CCU:\r\n";
                         txtDecryptedData1.Text += GetHexFromBytearray(DecryptedPacketsPeer1[IndexPeer1].Data) + "\r\n";
                         txtDecryptedData2.Text += "LGW => CCU:\r\n";
-                        txtDecryptedData2.Text += Encoding.UTF8.GetString(DecryptedPacketsPeer1[IndexPeer1].Data) + "\r\n";
+                        txtDecryptedData2.Text += ASCIIToString(DecryptedPacketsPeer1[IndexPeer1].Data) + "\r\n";
                         IndexPeer1++;
                     }
                 }
@@ -247,6 +247,17 @@ namespace HMLGWPacketAnalyzer
                 if (SpaceBetweenBytes && i < Bytearray.Length - 1) Hex += " ";
             }
             return Hex;
+        }
+
+        String ASCIIToString(byte[] Bytes)
+        {
+            StringBuilder sb = new StringBuilder(Bytes.Length);
+            foreach (char c in Bytes.Select(b => (char)b))
+            {
+                if (c < '\u0020' || c >= '\u007F') { sb.Append("."); }
+                else { sb.Append(c); }
+            }
+            return sb.ToString();
         }
     }
 }
