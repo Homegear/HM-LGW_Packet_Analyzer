@@ -51,17 +51,16 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Key:";
+            this.label3.Text = "Security Key:";
             // 
             // txtKey
             // 
-            this.txtKey.Location = new System.Drawing.Point(55, 6);
+            this.txtKey.Location = new System.Drawing.Point(87, 6);
             this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(293, 20);
+            this.txtKey.Size = new System.Drawing.Size(256, 20);
             this.txtKey.TabIndex = 5;
-            this.txtKey.Text = "5P4knCaKDd";
             this.txtKey.TextChanged += new System.EventHandler(this.txtKey_TextChanged);
             // 
             // txtEncryptedData
