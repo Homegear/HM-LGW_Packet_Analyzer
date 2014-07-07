@@ -88,12 +88,12 @@ namespace HMLGWPacketAnalyzer
                     Key = GetBytearrayFromHex(txtKey.Text);
                 }
                 string Temp = Encoding.UTF8.GetString(PacketsPeer1[0].Data);
-                StartIndex = Temp.IndexOf("V02");
+                StartIndex = Temp.IndexOf("V");
                 Temp = Temp.Substring(StartIndex + 4).Replace("\r\n", "");
                 byte[] RemoteIV = GetBytearrayFromHex(Temp);
 
                 Temp = Encoding.UTF8.GetString(PacketsPeer0[0].Data);
-                StartIndex = Temp.IndexOf("V03");
+                StartIndex = Temp.IndexOf("V");
                 Temp = Temp.Substring(StartIndex + 4).Replace("\r\n", "");
                 byte[] MyIV = GetBytearrayFromHex(Temp);
 
